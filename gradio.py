@@ -3,6 +3,9 @@ import torch
 from torchvision import transforms
 from PIL import Image
 
+model_0 = torch.load("./model_0.pth")
+model_0.eval() 
+
 def classify_image(image):
     """
     Classifies an input image using a PyTorch model.
@@ -21,5 +24,8 @@ def classify_image(image):
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
     image_tensor = preprocess(image).unsqueeze(0)
-    
+
+    with torch.no_grad():
+        outputs = (image_tensor)
+
     return predicted_class
