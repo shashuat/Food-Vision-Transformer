@@ -14,4 +14,12 @@ def classify_image(image):
     int: The predicted class index based on the model's classification.
     """
 
+    # Preprocess the input image
+    preprocess = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    ])
+    image_tensor = preprocess(image).unsqueeze(0)
+    
     return predicted_class
