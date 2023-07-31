@@ -28,4 +28,8 @@ def classify_image(image):
     with torch.no_grad():
         outputs = (image_tensor)
 
+    _, predicted_idx = torch.max(outputs, 1)
+    predicted_class = predicted_idx.item()
+    
     return predicted_class
+
