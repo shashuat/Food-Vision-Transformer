@@ -39,3 +39,5 @@ iface = gr.Interface(
     inputs=gr.inputs.Image(),
     outputs=gr.outputs.Textbox(),
 )
+
+iface.launch()
