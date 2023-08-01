@@ -30,6 +30,12 @@ def classify_image(image):
 
     _, predicted_idx = torch.max(outputs, 1)
     predicted_class = predicted_idx.item()
-    
+
     return predicted_class
 
+# Define the Gradio interface
+iface = gr.Interface(
+    fn=classify_image,
+    inputs=gr.inputs.Image(),
+    outputs=gr.outputs.Textbox(),
+)
